@@ -145,10 +145,51 @@ There are many more STL templates than what is shown here. You will see the foll
 #include <stack> (std::stack, this is a container adaptor, only you cannot iterate through this like a queue. It is built on top of a deque and follows a Last-in, first-out scheme, the element at the top of the stack is the one that was most recently added)
  
  There are also several derived template headers that are not officially part of STL, but those are even more rarely used. Ignore them for now.
-
-
- ***TODO LIST***
- Create INIReader classes and functions
-
 */
 
+class INI_Reader
+{
+public:
+	INI_Reader(class INI_Reader const &);
+	INI_Reader(void);
+	~INI_Reader(void);
+	class INI_Reader & operator=(class INI_Reader const &);
+	void close(void);
+	bool find_header(char const *);
+	bool get_bool(unsigned int);
+	char const * get_file_name(void)const;
+	char const * get_header_ptr(void);
+	char const * get_indexed_value(unsigned int);
+	int get_line_num(void)const;
+	char const * get_line_ptr(void);
+	char const * get_name(void)const;
+	char const * get_name_ptr(void);
+	unsigned int get_num_parameters(void)const;
+	void get_state(struct State &)const;
+	bool get_value_bool(unsigned int);
+	float get_value_float(unsigned int);
+	int get_value_int(unsigned int);
+	char const * get_value_ptr(void);
+	char const * get_value_string(unsigned int);
+	char const * get_value_string(void);
+	unsigned short const * get_value_wstring(void);
+	class Vector  get_vector(void);
+	bool is_end(void)const;
+	bool is_header(char const *);
+	bool is_number(char const *)const;
+	bool is_value(char const *);
+	bool is_value_empty(unsigned int);
+	void log_link(char const *)const;
+	bool open(char const *, bool);
+	bool open_memory(char const *, unsigned int);
+	bool read_header(void);
+	bool read_value(void);
+	void reset(void);
+	void seek(unsigned int);
+	void set_state(struct State const &);
+	unsigned int tell(void)const;
+	double value_num(unsigned int);
+
+public:
+	unsigned char data[5480];
+};
