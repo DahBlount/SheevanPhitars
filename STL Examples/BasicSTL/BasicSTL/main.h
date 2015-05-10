@@ -7,8 +7,10 @@
 #include <string>		//This should (but it doesn't have to) be included if you want use the std namespace.
 using namespace std;	//This is bad practice however.
 
+#define foreach(lst, type, var) for(list<type>::iterator var = lst.begin(); (var != lst.end()); var++)
+
 //Create a basic struct we want to use in our map
-struct mapSTRUCT
+struct stlSTRUCT
 {
 	int id;						//You don't actually need to make an id or key variable within the struct, this is just to prove a point
 	string name;				//The name of the entry
@@ -22,7 +24,7 @@ typedef struct mapSTRUCTtype
 };
 */
 //A map is a dynamic container of structs, where you have the name of a stuct object, and the key to the object. A map is an assocative container.
-extern map<int, mapSTRUCT> testMap;			//The key to the object must be an integer, while the value inserted with the key is a struct, mySTRUCT to be exact.
+extern map<int, stlSTRUCT> testMap;			//The key to the object must be an integer, while the value inserted with the key is a struct, mySTRUCT to be exact.
 
 
 //It's also possible to make your own versions of a map, but this isn't exactly the most straight forward job. It's also not required after MSVS 2005.
@@ -119,12 +121,6 @@ class My_map : public std::map<T, U, std::less<T>, SCP_vm_allocator<std::pair<co
 
 #endif
 //These are the basics of a map, but there are other STL types as well
-
-struct stlSTRUCT
-{
-	int id;
-	string name;
-};
 
 //A list is a similar to an array, but is limited to reading via forward or backward iteration from a known position. A sequence container.
 extern list<stlSTRUCT> myList;			//In a list, the name would be used instead of the id as the key because the key to search for is also the name of the object you're looking for.
