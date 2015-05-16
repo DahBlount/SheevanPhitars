@@ -8,11 +8,12 @@
 #include <deque>
 #include <string>
 #include "main.h"
+using namespace std;
 
 //Declare all of our externed containers and adaptors again
-map<int, stlSTRUCT> testMap;
-list<stlSTRUCT> myList;
-vector<stlSTRUCT> myVector;
+map<int, myStruct> testMap;
+list<myStruct> myList;
+vector<myStruct> myVector;
 queue<string> myQueue;
 deque<string> myDeque;
 
@@ -29,7 +30,7 @@ void LoadIni()
 	if (myQueue.empty() != true)
 	{
 		queue<string> empty;
-		std::swap(myQueue, empty); //This literally swaps all of the values in myQueue out with empty, which is an empty queue at all times, this is one of the only ways to properly clear memory from a queue.
+		swap(myQueue, empty); //This literally swaps all of the values in myQueue out with empty, which is an empty queue at all times, this is one of the only ways to properly clear memory from a queue.
 	}
 	myDeque.clear();
 
@@ -40,7 +41,7 @@ void LoadIni()
 		{
 			if (ini.is_header("MAP_EXAMPLE"))
 			{
-				stlSTRUCT mapExample;
+				myStruct mapExample;
 				while (ini.read_value())
 				{
 					if (ini.is_value("id"))
@@ -56,7 +57,7 @@ void LoadIni()
 			}
 			else if (ini.is_header("LIST_EXAMPLE"))
 			{
-				stlSTRUCT listStruct;
+				myStruct listStruct;
 				while (ini.read_value())
 				{
 					if (ini.is_value("id"))
