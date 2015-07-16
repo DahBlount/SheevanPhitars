@@ -1,5 +1,5 @@
 // Parallel dot product implementation, example of race condition and use of an atomic type
-
+#include <iostream>
 #include <thread>
 #include <vector>
 
@@ -7,7 +7,7 @@
 //if possible the function will split mem into equal chuncks, if not 
 //the last chunck will be slightly larger
 
-/*
+
 #include <atomic>
 
 std::vector<int> bounds(int parts, int mem) {
@@ -62,8 +62,8 @@ int main(){
 
 	return 0;
 }
-*/
 
+/*
 #include <mutex>
 
 static std::mutex barrier;
@@ -111,4 +111,4 @@ int main() {
 	} while (simulate == 'y');
 
 	return 0;
-}
+}*/
