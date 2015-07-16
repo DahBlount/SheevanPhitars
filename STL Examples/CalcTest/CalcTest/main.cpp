@@ -1,10 +1,29 @@
 #include <iostream>
-#include <thread>
 #include <map>
-#include <vector>
 #include <string>
 #include <cmath>
+#include <algorithm>
+#include <cstdarg>
+#include <cstring>
+#include <limits.h>
+
 #include "CalcTest.h"
+
+inline
+bool ch_is_sign(char ch)
+{
+	return ((ch == '-') || (ch == '+'));
+}
+
+inline
+bool ch_is_numeral(char ch) {
+	return ((ch >= '0') && (ch <= '9'));
+}
+
+inline
+bool ch_is_decimal(char ch) {
+	return (ch == '.');
+}
 
 std::map<int,ExpTerm> FuncExpDiff(std::map<int,ExpTerm> nthTerms)
 {
