@@ -36,7 +36,7 @@ void dot_product(const std::vector<int> &v1, const std::vector<int> &v2, std::at
 
 int main(){
 	int nr_elements = 100000;
-	int nr_threads = 2;
+	int nr_threads = 4;
 	std::atomic<int> result(0);
 	std::vector<std::thread> threads;
 
